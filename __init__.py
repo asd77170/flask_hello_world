@@ -62,7 +62,10 @@ def Seadfiche(client_name):
 
    # Rendre le template HTML et transmettre les données
     return render_template('read_data.html', data=data)
-                                                            
+
+@app.route('/login/')
+def login():
+  return render_template('login.html')
 
                          
 if __name__ == "__main__":
