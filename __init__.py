@@ -52,7 +52,7 @@ def Readfiche(post_id):
     # Rendre le template HTML et transmettre les données
     return render_template('read_data.html', data=data)
 
-@app.route('/recherche_fiche_client/<string:client_name>')
+@app.route('/recherche_fiche_client/<String:client_name>')
 def Seadfiche(client_name):
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
