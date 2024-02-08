@@ -56,7 +56,7 @@ def Readfiche(post_id):
 def Seadfiche(client_name):
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM clients WHERE name LIKE ?", ('%' + client_name + '%',))
+    cursor.execute("SELECT * FROM clients WHERE nom LIKE ?", ('%' + client_name + '%',))
     data = cursor.fetchall()
     conn.close()
 
