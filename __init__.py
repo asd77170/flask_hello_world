@@ -63,10 +63,9 @@ def Seadfiche(client_name):
    # Rendre le template HTML et transmettre les données
     return render_template('read_data.html', data=data)
 
-@app.route('/login/')
-def login():
-  return render_template('login.html')
-
+@app.route('/enregister_client', methods=['GET'])
+def formulaire_client():
+    return render_template('formulaire_client.html')
                          
 if __name__ == "__main__":
   app.run(debug=True)
