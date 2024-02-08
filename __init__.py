@@ -66,6 +66,11 @@ def Seadfiche(client_name):
 @app.route('/enregister_client/')
 def formulaire_client():
     return render_template('formulaire_client.html')
-                         
+
+@app.route('/write/', methods=['POST'])
+def formulaire_client():
+    return "Ici va s'enregistrer les informations"
+
+                      
 if __name__ == "__main__":
   app.run(debug=True)
