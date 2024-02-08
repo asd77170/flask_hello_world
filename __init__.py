@@ -53,13 +53,15 @@ def Readfiche(post_id):
     return render_template('read_data.html', data=data)
 
 
-@app.route('/recherche_fiche_client/<string:post_nom>')
-def Searchebyname(post_nom):
+@app.route('/recherche_fiche_client/<string:post_Nom>')
+def Searchfile(post_Nom):
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
-    cursor.execute('SELECT * FROM clients WHERE LIKE nom ?', (post_nom,))
+    cursor.execute('SELECT * FROM clients WHERE Nom=?', (post_Nom,))
     data = cursor.fetchall()
     conn.close()
+    
+
     
     # Rendre le template HTML et transmettre les données
     return render_template('read_data.html', data=data)
