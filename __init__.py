@@ -52,6 +52,17 @@ def Readfiche(post_id):
     # Rendre le template HTML et transmettre les données
     return render_template('read_data.html', data=data)
 
+@app.route('/fiche_client/<string:client_name>')
+def Seadfiche(client_name):
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM clients WHERE name LIKE ?", ('%' + client_name + '%',))
+    data = cursor.fetchall()
+    conn.close()
+
+    # Vous pouvez ensuite faire quelque chose avec les données récupérées, par exemple l'afficher
+    return str(data)
+
 
 
                                                                                      
