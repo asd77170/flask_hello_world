@@ -60,11 +60,8 @@ def Seadfiche(client_name):
     data = cursor.fetchall()
     conn.close()
 
-    # Vous pouvez ensuite faire quelque chose avec les données récupérées, par exemple l'afficher
-    return str(data)
-
-
-
+   # Rendre le template HTML et transmettre les données
+    return render_template('read_data.html', data=data)
                                                                                      
 if __name__ == "__main__":
   app.run(debug=True)
