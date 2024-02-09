@@ -68,8 +68,8 @@ def formulaire_client():
     return render_template('formulaire_client.html')
 
 @app.route('/write/', methods=['POST'])
-def insert.py():
-    return render_template('insert.py')
+def write():
+    return (c'est par ici)
 
                   
 if __name__ == "__main__":
