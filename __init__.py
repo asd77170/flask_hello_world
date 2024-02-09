@@ -69,12 +69,7 @@ def formulaire_client():
 
 @app.route('/write/', methods=['POST'])
 def write_client():
-    # Récupérer les données du formulaire
-    nom = request.form['nom']
-    prenom = request.form['prenom']
-    email = request.form['email']
-    # Supposons que vous ayez d'autres données à récupérer ici
-  
+    return "Opération de sauvegarde réussie ! C'est par ici"
                   
 if __name__ == "__main__":
   app.run(debug=True)
