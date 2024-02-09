@@ -74,25 +74,7 @@ def write_client():
     prenom = request.form['prenom']
     email = request.form['email']
     # Supposons que vous ayez d'autres données à récupérer ici
-
-    # Préparer les données pour l'envoi au site distant
-    data = {
-        'nom': nom,
-        'prenom': prenom,
-        'email': email,
-        # Ajoutez d'autres données si nécessaire
-    }
-
-    # Effectuer la requête POST vers le site distant
-    try:
-        response = requests.post('https://mka.alwaysdata.net/consultation/', data=data)
-        # Vérifier si la requête a réussi
-        if response.status_code == 200:
-            return "Opération de sauvegarde réussie !"
-        else:
-            return "Erreur lors de l'envoi des données au site distant."
-    except Exception as e:
-        return f"Une erreur s'est produite : {str(e)}"
+  
                   
 if __name__ == "__main__":
   app.run(debug=True)
