@@ -68,7 +68,7 @@ def formulaire_client():
     return render_template('formulaire_client.html')
 
 @app.route('/write/', methods=['POST'])
-def write():
+def write_client():
     return (c'est par ici)
 
                   
