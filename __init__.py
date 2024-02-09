@@ -71,6 +71,11 @@ def formulaire_client():
 def write_client():
     return "Ici va s'enregistrer les informations"
 
+@app.route('/nouveau_client/')
+def formulaire_client():
+    return render_template('formulaire_client.html')
+
+
                       
 if __name__ == "__main__":
   app.run(debug=True)
