@@ -71,13 +71,6 @@ def formulaire_client():
 def write_client():
     return "Opération de sauvegarde réussie ! C'est par ici"
 
-from flask import Flask, render_template_string, render_template, jsonify, request, redirect, url_for, session
-from flask import render_template
-from flask import json
-from urllib.request import urlopen
-import sqlite3
-
-app = Flask(__name__)  
 
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'  # Clé secrète pour les sessions (à cacher par la suite)
 
