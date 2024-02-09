@@ -69,7 +69,7 @@ def formulaire_client():
 
 @app.route('/write/', methods=['POST'])
 def write_client():
-    return (c'est par ici)
+    return "Opération de sauvegarde réussie ! C'est par ici"
 
                   
 if __name__ == "__main__":
