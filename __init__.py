@@ -34,7 +34,7 @@ def mongraphique():
 def ReadBDD():
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
-    cursor.execute('insert * FROM clients;')
+    cursor.execute('Select * FROM clients;')
     data = cursor.fetchall()
     conn.close()
     
