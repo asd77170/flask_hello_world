@@ -6,3 +6,10 @@ CREATE TABLE clients (
     prenom TEXT NOT NULL,
     adresse TEXT NOT NULL
 );
+
+DROP TABLE IF EXISTS Utilisateurs;
+CREATE TABLE utilisateurs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL,
+    password TEXT NOT NULL
+);
