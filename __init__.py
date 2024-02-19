@@ -134,7 +134,7 @@ def utilisateur():
         # Insérer les données dans la base de données (ici, je suppose que tu as une table 'utilisateur')
         conn = sqlite3.connect('database.db')
         cursor = conn.cursor()
-        cursor.execute('INSERT INTO utilisateur (Username,Password) VALUES (?, ?, ?)', (Username,Password, ))
+        cursor.execute('INSERT INTO utilisateurs (Username,Password) VALUES (?, ?, ?)', (Username,Password,))
         conn.commit()
         conn.close()
 
@@ -144,7 +144,7 @@ def utilisateur():
     # Si la méthode est GET, simplement rendre le template du formulaire
     return render_template('ajouter_utilisateur.html')
 
-@app.route('/consultation_utilisateur/')
+@app.route('/consultation_utilisateurs/')
 def afficher_utilisateur():
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
