@@ -145,7 +145,7 @@ def utilisateur():
     return render_template('ajouter_utilisateur.html')
 
 @app.route('/consultation_utilisateur/')
-def ReadBDD():
+def afficher_utilisateur():
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
     cursor.execute('Select * FROM utilisateurs;')
