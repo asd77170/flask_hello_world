@@ -82,7 +82,7 @@ def ajouter_client():
         # Insérer les données dans la base de données (ici, je suppose que tu as une table 'clients')
         conn = sqlite3.connect('database.db')
         cursor = conn.cursor()
-        cursor.execute('INSERT INTO clients (nom, prenom, adresse) VALUES (?, ?, ?)', (nom, prenom, adresse))
+        cursor.execute('INSERT INTO clients (nom, prenom, adresse) VALUES (?,?, ?)', (nom, prenom, adresse))
         conn.commit()
         conn.close()
 
@@ -127,14 +127,14 @@ def authentification():
 def utilisateur():
     if request.method == 'POST':
         # Récupérer les données du formulaire
-        Username = request.form['Username']
-        Password = request.form['Password']
+        username = request.form['username']
+        password = request.form['password']
       
 
         # Insérer les données dans la base de données (ici, je suppose que tu as une table 'utilisateur')
         conn = sqlite3.connect('database.db')
         cursor = conn.cursor()
-        cursor.execute('INSERT INTO utilisateurs (Username,Password) VALUES (?, ?, ?)', (Username,Password,))
+        cursor.execute('INSERT INTO utilisateurs (Username,Password) VALUES (?, ?)', (username,password,))
         conn.commit()
         conn.close()
 
