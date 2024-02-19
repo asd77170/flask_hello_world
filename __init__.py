@@ -146,12 +146,16 @@ def utilisateur():
 
 @app.route('/consultation_utilisateurs/')
 def afficher_utilisateur():
-    conn = sqlite3.connect('database.db')
-    cursor = conn.cursor()
-    cursor.execute('Select * FROM utilisateurs;')
-    data = cursor.fetchall()
-    conn.close()
-    
+    try:
+        with sqlite3.connect('database.db') as conn:
+            cursor = conn.cursor()
+            cursor.execute('SELECT * FROM utilisateurs;')
+            data = cursor.fetchall()
+    except sqlite3.Error as e:
+        # Gérer l'erreur, par exemple, en affichant un message d'erreur ou en journalisant
+        print("Erreur SQLite:", e)
+        data = None
+
     # Rendre le template HTML et transmettre les données
     return render_template('afficher_utilisateur.html', data=data)
                   
