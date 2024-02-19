@@ -92,6 +92,7 @@ def ajouter_client():
     # Si la méthode est GET, simplement rendre le template du formulaire
     return render_template('ajouter_client.html')
 
+
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'  # Clé secrète pour les sessions (à cacher par la suite)
 
 # Fonction pour créer une entrée "authentifie" dans la session de l'utilisateur
