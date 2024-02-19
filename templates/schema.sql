@@ -7,7 +7,7 @@ CREATE TABLE clients (
     adresse TEXT NOT NULL
 );
 
-DROP TABLE IF EXISTS Utilisateurs;
+DROP TABLE IF EXISTS utilisateurs;
 CREATE TABLE utilisateurs (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT NOT NULL,
