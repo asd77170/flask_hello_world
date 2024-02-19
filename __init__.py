@@ -143,6 +143,17 @@ def utilisateur():
 
     # Si la méthode est GET, simplement rendre le template du formulaire
     return render_template('ajouter_utilisateur.html')
+
+@app.route('/consultation_utilisateur/')
+def ReadBDD():
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+    cursor.execute('Select * FROM utilisateur;')
+    data = cursor.fetchall()
+    conn.close()
+    
+    # Rendre le template HTML et transmettre les données
+    return render_template('afficher_utilisateur.html', data=data)
                   
 if __name__ == "__main__":
   app.run(debug=True)
