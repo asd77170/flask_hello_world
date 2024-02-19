@@ -16,6 +16,8 @@ cur.execute("INSERT INTO clients (nom, prenom, adresse) VALUES (?, ?, ?)",('GAGO
 cur.execute("INSERT INTO clients (nom, prenom, adresse) VALUES (?, ?, ?)",('DUBOIS', 'Charlotte', '2789, Rue des Roses, 13005 Marseille'))
 cur.execute("INSERT INTO clients (nom, prenom, adresse) VALUES (?, ?, ?)",('LEFEVRE', 'Thomas', '333, Rue de la Paix, 75002 Paris'))
 
+cur.execute("INSERT INTO Utilisateurs (Username, Password,) VALUES (?, ?, ?)",('Admin', 'A',))
+cur.execute("INSERT INTO Utilisateurs (Username, Password,) VALUES (?, ?, ?)",('Vendeur', 'V',))
 
 connection.commit()
 connection.close()
