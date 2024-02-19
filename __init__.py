@@ -122,6 +122,27 @@ def authentification():
             return render_template('formulaire_authentification.html', error=True)
 
     return render_template('formulaire_authentification.html', error=False)
+
+@app.route('/ajouter_utilisateur/', methods=['GET', 'POST'])
+def utilisateur():
+    if request.method == 'POST':
+        # Récupérer les données du formulaire
+        Username = request.form['Username']
+        Password = request.form['Password']
+      
+
+        # Insérer les données dans la base de données (ici, je suppose que tu as une table 'utilisateur')
+        conn = sqlite3.connect('database.db')
+        cursor = conn.cursor()
+        cursor.execute('INSERT INTO utilisateur (Username,Password) VALUES (?, ?, ?)', (Username,Password, ))
+        conn.commit()
+        conn.close()
+
+        # Rediriger vers la page de consultation des clients après l'ajout
+        return redirect(url_for('ReadBDD'))
+
+    # Si la méthode est GET, simplement rendre le template du formulaire
+    return render_template('ajouter_utilisateur.html')
                   
 if __name__ == "__main__":
   app.run(debug=True)
