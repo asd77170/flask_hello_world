@@ -148,7 +148,7 @@ def utilisateur():
 def ReadBDD():
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
-    cursor.execute('Select * FROM utilisateur;')
+    cursor.execute('Select * FROM utilisateurs;')
     data = cursor.fetchall()
     conn.close()
     
