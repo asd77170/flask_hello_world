@@ -101,7 +101,7 @@ def supprimer_client():
         adresse = request.form['adresse']
 
         # Insérer les données dans la base de données (ici, je suppose que tu as une table 'clients')
-        conn = sqlite3.connect('ma_base_de_donnees.db')
+        conn = sqlite3.connect('database.db')
         cursor = conn.cursor()
 
 # Supprimer un élément de la table en utilisant SQL
