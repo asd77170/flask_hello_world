@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un nouveau client</title>
+    <title>Gestion des clients</title>
 </head>
 <body>
 
@@ -23,5 +22,15 @@
         <input type="submit" value="Ajouter">
     </form>
 
+    <h2>Supprimer un client</h2>
+
+    <form action="/supprimer_client" method="post">
+        <label for="id_client">ID du client à supprimer :</label>
+        <input type="text" id="id_client" name="id_client" required><br>
+
+        <input type="submit" value="Supprimer">
+    </form>
+
 </body>
 </html>
+
