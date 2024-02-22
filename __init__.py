@@ -106,9 +106,7 @@ def ajouter_client():
 def supprimer_client():
     if request.method == 'POST':
         # Récupérer les données du formulaire
-        nom = request.form['nom']
-        prenom = request.form['prenom']
-        adresse = request.form['adresse']
+        id = request.form['nom']
 
         # Insérer les données dans la base de données (ici, je suppose que tu as une table 'clients')
         conn = sqlite3.connect('database.db')
