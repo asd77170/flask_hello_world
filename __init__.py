@@ -190,5 +190,10 @@ def afficher_utilisateur():
     
     # Rendre le template HTML et transmettre les données
     return render_template('afficher_utilisateur.html', data=data)
+
+app.route('/ventes_client/')
+def statistiques_ventes_client():
+    return jsonify(statistiques)
+
 if __name__ == "__main__":
   app.run(debug=True)
