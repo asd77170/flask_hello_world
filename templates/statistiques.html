@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistiques des ventes</title>
+</head>
+<body>
+    <h1>Statistiques des ventes</h1>
+    <p>Total des ventes: {{ statistiques.total_ventes }}</p>
+    <p>Nombre de jours: {{ statistiques.nombre_jours }}</p>
+    <p>Moyenne des ventes: {{ statistiques.moyenne_ventes }}</p>
+    <p>Jour avec le plus de ventes: {{ statistiques.jour_max_ventes }} ({{ statistiques.max_ventes }} ventes)</p>
+    <p>Jour avec le moins de ventes: {{ statistiques.jour_min_ventes }} ({{ statistiques.min_ventes }} ventes)</p>
+    <img src="data:image/png;base64,{{ statistiques.graphique }}" alt="Graphique des ventes">
+</body>
+</html>
