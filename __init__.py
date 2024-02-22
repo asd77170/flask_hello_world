@@ -86,9 +86,6 @@ def ajouter_client():
         conn.commit()
         conn.close()
 
-        conn = sqlite3.connect('database.db')
-        cursor = conn.cursor()
-
 # Supprimer un élément de la table en utilisant SQL
         element_id = 5  # Remplacez ceci par l'ID de l'élément que vous voulez supprimer
         cursor.execute("DELETE FROM clients WHERE id = ?", (element_id,))
@@ -98,7 +95,6 @@ def ajouter_client():
 
 # Fermer la connexion à la base de données
         conn.close()
-
 
         # Rediriger vers la page de consultation des clients après l'ajout
         return redirect(url_for('ReadBDD'))
