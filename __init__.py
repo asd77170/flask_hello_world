@@ -101,10 +101,17 @@ def supprimer_client():
         adresse = request.form['adresse']
 
         # Insérer les données dans la base de données (ici, je suppose que tu as une table 'clients')
-        conn = sqlite3.connect('database.db')
+        conn = sqlite3.connect('ma_base_de_donnees.db')
         cursor = conn.cursor()
-        cursor.execute('DELETE FROM clients WHERE id IN {9,10,11}',) 
+
+# Supprimer un élément de la table en utilisant SQL
+        element_id = 5  # Remplacez ceci par l'ID de l'élément que vous voulez supprimer
+        cursor.execute("DELETE FROM nom_de_la_table WHERE id = ?", (element_id,))
+
+# Valider la transaction
         conn.commit()
+
+# Fermer la connexion à la base de données
         conn.close()
 
         # Rediriger vers la page de consultation des clients après l'ajout
