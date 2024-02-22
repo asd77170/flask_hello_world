@@ -92,8 +92,8 @@ def ajouter_client():
     # Si la méthode est GET, simplement rendre le template du formulaire
     return render_template('ajouter_client.html')
 
-@app.route('/ajouter_client/', methods=['GET', 'POST'])
-def ajouter_client():
+@app.route('/supprimer_client/', methods=['GET', 'POST'])
+def supprimer_client():
     if request.method == 'POST':
         # Récupérer les données du formulaire
         nom = request.form['nom']
@@ -111,7 +111,7 @@ def ajouter_client():
         return redirect(url_for('ReadBDD'))
 
     # Si la méthode est GET, simplement rendre le template du formulaire
-    return render_template('ajouter_client.html')
+    return render_template('supprimer_client.html')
 
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'  # Clé secrète pour les sessions (à cacher par la suite)
 
