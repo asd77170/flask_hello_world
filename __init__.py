@@ -106,7 +106,7 @@ def supprimer_client():
 
 # Supprimer un élément de la table en utilisant SQL
         element_id = 5  # Remplacez ceci par l'ID de l'élément que vous voulez supprimer
-        cursor.execute("DELETE FROM nom_de_la_table WHERE id = ?", (element_id,))
+        cursor.execute("DELETE FROM clients WHERE id = ?", (element_id,))
 
 # Valider la transaction
         conn.commit()
