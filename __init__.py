@@ -92,6 +92,26 @@ def ajouter_client():
     # Si la méthode est GET, simplement rendre le template du formulaire
     return render_template('ajouter_client.html')
 
+@app.route('/ajouter_client/', methods=['GET', 'POST'])
+def ajouter_client():
+    if request.method == 'POST':
+        # Récupérer les données du formulaire
+        nom = request.form['nom']
+        prenom = request.form['prenom']
+        adresse = request.form['adresse']
+
+        # Insérer les données dans la base de données (ici, je suppose que tu as une table 'clients')
+        conn = sqlite3.connect('database.db')
+        cursor = conn.cursor()
+        cursor.execute('INSERT INTO clients (nom, prenom, adresse) VALUES (?,?, ?)', (nom, prenom, adresse))
+        conn.commit()
+        conn.close()
+
+        # Rediriger vers la page de consultation des clients après l'ajout
+        return redirect(url_for('ReadBDD'))
+
+    # Si la méthode est GET, simplement rendre le template du formulaire
+    return render_template('ajouter_client.html')
 
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'  # Clé secrète pour les sessions (à cacher par la suite)
 
