@@ -191,9 +191,49 @@ def afficher_utilisateur():
     # Rendre le template HTML et transmettre les données
     return render_template('afficher_utilisateur.html', data=data)
 
-app.route('/ventes_client/')
+@app.route('/ventes_client/')
 def statistiques_ventes_client():
-    return jsonify(statistiques)
+    # Calculer les statistiques
+    total_ventes = sum(ventes_client.values())
+    nombre_jours = len(ventes_client)
+    moyenne_ventes = total_ventes / nombre_jours
+    jour_max_ventes = max(ventes_client, key=ventes_client.get)
+    max_ventes = ventes_client[jour_max_ventes]
+    jour_min_ventes = min(ventes_client, key=ventes_client.get)
+    min_ventes = ventes_client[jour_min_ventes]
+
+    # Créer un graphique à barres des ventes par jour
+    dates = list(ventes_client.keys())
+    ventes = list(ventes_client.values())
+
+    plt.figure(figsize=(10, 6))
+    plt.bar(dates, ventes, color='skyblue')
+    plt.title('Statistiques des ventes par jour')
+    plt.xlabel('Jour')
+    plt.ylabel('Ventes')
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
+
+    # Convertir le graphique en une image base64 pour l'intégrer dans le HTML
+    buffer = io.BytesIO()
+    plt.savefig(buffer, format='png')
+    buffer.seek(0)
+    buffer_base64 = base64.b64encode(buffer.getvalue()).decode('utf-8')
+    plt.close()
+
+    # Créer le dictionnaire de statistiques
+    statistiques = {
+        'total_ventes': total_ventes,
+        'nombre_jours': nombre_jours,
+        'moyenne_ventes': moyenne_ventes,
+        'jour_max_ventes': jour_max_ventes,
+        'max_ventes': max_ventes,
+        'jour_min_ventes': jour_min_ventes,
+        'min_ventes': min_ventes,
+        'graphique': buffer_base64
+    }
+
+    return render_template('statistiques.html', statistiques=statistiques)
 
 if __name__ == "__main__":
   app.run(debug=True)
