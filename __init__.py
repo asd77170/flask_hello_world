@@ -103,7 +103,7 @@ def supprimer_client():
         # Insérer les données dans la base de données (ici, je suppose que tu as une table 'clients')
         conn = sqlite3.connect('database.db')
         cursor = conn.cursor()
-        cursor.execute('DELETE FROM clients WHERE id IN {9,10,11}', 
+        cursor.execute('DELETE FROM clients WHERE id IN {9,10,11}',) 
         conn.commit()
         conn.close()
 
