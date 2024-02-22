@@ -192,7 +192,7 @@ def afficher_utilisateur():
     return render_template('afficher_utilisateur.html', data=data)
 
 @app.route('/ventes_client/')
-def statistiques_ventes_client():
+def statistiques_ventes_client.py():
     # Calculer les statistiques
     total_ventes = sum(ventes_client.values())
     nombre_jours = len(ventes_client)
