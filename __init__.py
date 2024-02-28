@@ -144,21 +144,20 @@ def lecture():
     return "<h2>Bravo, vous êtes authentifié</h2>"
 
 
-@app.route('/authentification', methods=['POST'])
+@app.route('/authentification', methods=['GET', 'POST'])
 def authentification():
-    username = request.form['username']
-    password = request.form['password']
-    
-    if username == 'admin' and password == '@dmin123':
-        # Authentification réussie, redirigez vers une page de succès par exemple
-        return redirect(url_for('success'))
-    else:
-        # Authentification échouée, affichez un message d'erreur
-        return render_template('authentification.html', error=True)
+    if request.method == 'POST':
+        # Vérifier les identifiants
+        if request.form['username'] == 'admin' and request.form['password'] == '123': # password à cacher par la suite
+            session['authentifie'] = True
+            # Rediriger vers la route lecture après une authentification réussie
+            return redirect(url_for('lecture'))
+        else:
+            # Afficher un message d'erreur si les identifiants sont incorrects
+            return render_template('formulaire_authentification.html', error=True)
 
-@app.route('/success')
-def success():
-    return "Authentification réussie ! Bienvenue, admin."
+    return render_template('formulaire_authentification.html', error=False)
+
 
 
 @app.route('/ajouter_utilisateur/', methods=['GET', 'POST'])
